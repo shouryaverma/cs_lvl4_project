@@ -1,3 +1,16 @@
+import wfdb as wf
+import numpy as np
+import glob
+from matplotlib import pyplot as plt
+from biosppy.signals import ecg
+from scipy import signal
+
+def extract_data():
+    data_files = glob.glob('./mit-bih/*.atr')
+    data_files = [i[:-4] for i in data_files]
+    data_files.sort()
+    return data_files
+
 records = extract_data()
 print('Total files: ', len(records))
 
@@ -9,7 +22,7 @@ print('Total files: ', len(records))
 # Reference:
 # https://physionet.org/physiobank/database/html/mitdbdir/intro.htm
 
-realbeats = ['N','L','R','B','A','a','J','S','V','r',
+good_beats = ['N','L','R','B','A','a','J','S','V','r',
              'F','e','j','n','E','/','f','Q','?']
 
 # Loop through each input file. Each file contains one
@@ -37,14 +50,34 @@ for path in records:
     # Generate the classifications based on the annotations.
     # 0.0 = undetermined
     # 1.0 = normal
-    # 2.0 = abnormal
-    cat = np.array(annotation.symbol)
-    rate = np.zeros_like(cat, dtype='float')
-    for catid, catval in enumerate(cat):
-        if (catval == 'N'):
-            rate[catid] = 1.0 # Normal
-        elif (catval in realbeats):
-            rate[catid] = 2.0 # Abnormal
+    # 2.0 = LBBBB
+    # 3.0 = RBBBB
+    # 4.0 = Premature Ventricular contraction
+    # 5.0 = Atrial Premature beat
+    # 6.0 = Fusion ventricular normal beat
+    # 7.0 = Fusion of paced and normal beat
+    # 8.0 = paced beat
+    
+    clas = np.array(annotation.symbol)
+    rate = np.zeros_like(clas, dtype='float')
+    for clasid, clasval in enumerate(clas):
+        if (clasval == 'N'):
+            rate[clasid] = 1.0 # Normal
+        elif (clasval == 'L'):
+            rate[clasid] = 2.0 # LBBBB
+        elif (clasval == 'R'):
+            rate[clasid] = 3.0 # RBBBB
+        elif (clasval == 'V'):
+            rate[clasid] = 4.0 # Premature Ventricular contraction
+        elif (clasval == 'A'):
+            rate[clasid] = 5.0 # Atrial Premature beat
+        elif (clasval == 'F'):
+            rate[clasid] = 6.0 # Fusion ventricular normal beat
+        elif (clasval == 'f'):
+            rate[clasid] = 7.0 # Fusion of paced and normal beat
+        elif (clasval == '/'):
+            rate[clasid] = 8.0 # paced beat
+            
     rates = np.zeros_like(data[0], dtype='float')
     rates[annotation.sample] = rate
     
@@ -78,15 +111,12 @@ for path in records:
             # or near the position of the rpeak index.
             fromidx = 0 if idxval < 10 else idxval - 10
             toidx = idxval + 10
-            catval = rates[fromidx:toidx].max()
+            clasval = rates[fromidx:toidx].max()
             
             # Skip beat if there is no classification.
-            if (catval == 0.0):
+            if (clasval == 0.0):
                 beatstoremove = np.append(beatstoremove, idx)
                 continue
-
-            # Normal beat is now classified as 0.0 and abnormal is 1.0.
-            catval = catval - 1.0
 
             # Append some extra readings from next beat.
             beats[idx] = np.append(beats[idx], beats[idx+1][:40])
@@ -108,7 +138,7 @@ for path in records:
             beats[idx] = np.pad(beats[idx], (0, zerocount), 'constant', constant_values=(0.0, 0.0))
 
             # Append the classification to the beat data.
-            beats[idx] = np.append(beats[idx], catval)
+            beats[idx] = np.append(beats[idx], clasval)
 
         beatstoremove = np.append(beatstoremove, len(beats)-1)
 
