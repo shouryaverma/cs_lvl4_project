@@ -99,46 +99,46 @@ for path in records:
         # Split into individual heartbeats. For each heartbeat
         # record, append classification (normal/abnormal).
         beats = np.split(channel, out['rpeaks'])
-        for idx, idxval in enumerate(out['rpeaks']):
-            firstround = idx == 0
-            lastround = idx == len(beats) - 1
+        for ind, ind_val in enumerate(out['rpeaks']):
+            beat_start = ind == 0
+            beat_end = ind == len(beats) - 1
 
-            # Skip first and last beat.
-            if (firstround or lastround):
+            # Skip start and end beat.
+            if (beat_start or beat_end):
                 continue
 
             # Get the classification value that is on
             # or near the position of the rpeak index.
-            fromidx = 0 if idxval < 10 else idxval - 10
-            toidx = idxval + 10
-            clasval = rates[fromidx:toidx].max()
+            from_ind = 0 if ind_val < 10 else ind_val - 10
+            to_ind = ind_val + 10
+            clasval = rates[from_ind:to_ind].max()
             
             # Skip beat if there is no classification.
             if (clasval == 0.0):
-                beatstoremove = np.append(beatstoremove, idx)
+                beatstoremove = np.append(beatstoremove, ind)
                 continue
 
             # Append some extra readings from next beat.
-            beats[idx] = np.append(beats[idx], beats[idx+1][:40])
+            beats[ind] = np.append(beats[idx], beats[ind+1][:40])
 
             # Normalize the readings to a 0-1 range for ML purposes.
-            beats[idx] = (beats[idx] - beats[idx].min()) / beats[idx].ptp()
+            beats[ind] = (beats[ind] - beats[ind].min()) / beats[ind].ptp()
 
             # Resample from 360Hz to 125Hz
-            newsize = int((beats[idx].size * 125 / 360) + 0.5)
-            beats[idx] = signal.resample(beats[idx], newsize)
+            newsize = int((beats[ind].size * 125 / 360) + 0.5)
+            beats[ind] = signal.resample(beats[ind], newsize)
 
             # Skipping records that are too long.
-            if (beats[idx].size > 187):
-                beatstoremove = np.append(beatstoremove, idx)
+            if (beats[ind].size > 187):
+                beatstoremove = np.append(beatstoremove, ind)
                 continue
 
             # Pad with zeroes.
-            zerocount = 187 - beats[idx].size
-            beats[idx] = np.pad(beats[idx], (0, zerocount), 'constant', constant_values=(0.0, 0.0))
+            zerocount = 187 - beats[ind].size
+            beats[ind] = np.pad(beats[ind], (0, zerocount), 'constant', constant_values=(0.0, 0.0))
 
             # Append the classification to the beat data.
-            beats[idx] = np.append(beats[idx], clasval)
+            beats[ind] = np.append(beats[ind], clasval)
 
         beatstoremove = np.append(beatstoremove, len(beats)-1)
 
