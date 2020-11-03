@@ -38,4 +38,57 @@
 * *2 hours* made plots for the ecg data
 * *1 hours* made the google slides
 
+### 11 Oct 2020
+
+* *1 hour* Visualizing ECG data 
+* *2 hours* Segmenting  of ECG data
+* *1 hours* Annoation distribution graph
+
+### 12 Oct 2020
+
+* *1 hour* Meetig with Supervisor
+* *2 hours* Segmentation of annotated classes
+* *1 hours* Read research paper
+
+### 13 Oct 2020
+
+* *1 hour* Extracting heartbeat from data
+* *2 hours* creating ecg dataset from heartbeats
+
+
+### 15 Oct 2020
+
+* *1 hour* Normalization and Standardization of data
+* *2 hours* remove unclasssified beats
+
+
+### 17 Oct 2020
+
+* *2 hours* Resampling the frequency
+* *1 hours* Saving all beats into csv file
+
+### 18 Oct 2020
+
+* *1 hour* Created google slides
+* *2 hours* fixed bugs
+
+### 19 Oct 2020
+
+* *1 hour* Meeting with supervisor
+
+### 21 Oct 2020
+
+* *1 hour* Researched on upsampling and downsampling
+* *2 hours* wrote code for upsample and downsample
+
+### 23 Oct 2020
+
+* *1 hour* Fixed bugs for upsample and downsample code
+* *2 hours* Shuffling beats and reshaping the data matrix
+
+### 25 Oct 2020
+
+ 
+
+
 

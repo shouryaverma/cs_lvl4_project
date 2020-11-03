@@ -83,7 +83,7 @@ for path in records:
     
     indices = np.arange(data[0].size, dtype='int')
 
-    # Process each channel separately (2 per input file).
+    # Manipulate both channels
     for channelid, channel in enumerate(data):
         chname = record[1].get('sig_name')[channelid]
         print('    ECG channel type:', chname)
@@ -94,7 +94,7 @@ for path in records:
         rpeaks = np.zeros_like(channel, dtype='float')
         rpeaks[out['rpeaks']] = 1.0
         
-        beatstoremove = np.array([0])
+        discard_beats = np.array([0])
 
         # Split into individual heartbeats. For each heartbeat
         # record, append classification (normal/abnormal).
@@ -115,22 +115,25 @@ for path in records:
             
             # Skip beat if there is no classification.
             if (clasval == 0.0):
-                beatstoremove = np.append(beatstoremove, ind)
+                discard_beats = np.append(discard_beats, ind)
                 continue
 
             # Append some extra readings from next beat.
-            beats[ind] = np.append(beats[idx], beats[ind+1][:40])
+            beats[ind] = np.append(beats[ind][80:], beats[ind+1][0:180])
 
-            # Normalize the readings to a 0-1 range for ML purposes.
-            beats[ind] = (beats[ind] - beats[ind].min()) / beats[ind].ptp()
-
+            # Normalize the data
+            #beats[ind] = (beats[ind] - beats[ind].min()) / (beats[ind].max() - beats[ind].min())
+            
+            # Standardize the data
+            beats[ind] = ((beats[ind] - np.mean(beats[ind])) / np.std(beats[ind]))
+            
             # Resample from 360Hz to 125Hz
-            newsize = int((beats[ind].size * 125 / 360) + 0.5)
+            newsize = int(beats[ind].size * 125 / 360)
             beats[ind] = signal.resample(beats[ind], newsize)
 
             # Skipping records that are too long.
             if (beats[ind].size > 187):
-                beatstoremove = np.append(beatstoremove, ind)
+                discard_beats = np.append(discard_beats, ind)
                 continue
 
             # Pad with zeroes.
@@ -140,10 +143,10 @@ for path in records:
             # Append the classification to the beat data.
             beats[ind] = np.append(beats[ind], clasval)
 
-        beatstoremove = np.append(beatstoremove, len(beats)-1)
+        discard_beats = np.append(discard_beats, len(beats)-1)
 
         # Remove first and last beats and the ones without classification.
-        beats = np.delete(beats, beatstoremove)
+        beats = np.delete(beats, discard_beats)
 
         # Save to CSV file.
         savedata = np.array(list(beats[:]), dtype=np.float)
