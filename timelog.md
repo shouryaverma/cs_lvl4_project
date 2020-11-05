@@ -50,6 +50,8 @@
 * *2 hours* Segmentation of annotated classes
 * *1 hours* Read research paper
 
+## Week 3
+
 ### 13 Oct 2020
 
 * *1 hour* Extracting heartbeat from data
@@ -76,19 +78,58 @@
 
 * *1 hour* Meeting with supervisor
 
+## Week 4
+
 ### 21 Oct 2020
 
 * *1 hour* Researched on upsampling and downsampling
 * *2 hours* wrote code for upsample and downsample
 
-### 23 Oct 2020
+### 22 Oct 2020
 
 * *1 hour* Fixed bugs for upsample and downsample code
 * *2 hours* Shuffling beats and reshaping the data matrix
 
+### 23 Oct 2020
+
+* *1 hour* Reaserch on Data Visualization
+* *3 hours* Docker and GPU cluster
+
 ### 25 Oct 2020
 
- 
+* *2 hour* UMAPS for cluster identification
+* *3 hours* Slides and more visualization 
+
+## Week 5
+
+### 26 Oct 2020
+
+* *1 hour* Supervisor meeting
+* *2 hours* Patient index for each record
+
+### 27 Oct 2020
+
+* *1 hour* TSNE and UMAP visualization
+* *2 hours* Data dimensionality reduction
+
+### 29 Oct 2020
+
+* *1 hour* Data split into training and testing
+* *3 hours* trained data on different classifiers
+
+### 31 Oct 2020
+
+* *2 hour* More PCA visualization 
+* *3 hours* LOOCV implementation
+
+## Week 6
+
+### 2 Nov 2020
+
+* *1 hour* Supervisor meeting
+* *2 hours* Research on CNN
+
+### 5 Nov 2020
 
 
 
