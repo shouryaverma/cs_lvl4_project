@@ -12,6 +12,15 @@ for j in sample_val_all:
 print(values.shape)
 
 from sklearn.model_selection import LeaveOneGroupOut
+from sklearn.ensemble import GradientBoostingClassifier
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import AdaBoostClassifier
+from sklearn.naive_bayes import GaussianNB
+from sklearn.neural_network import MLPClassifier
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.svm import SVC
+
 
 def leave_one_patient():
     X = values[:,:-2]
@@ -35,43 +44,54 @@ def leave_one_patient():
 
 X_train, X_test, y_train, y_test = leave_one_patient()
 
-from sklearn.ensemble import GradientBoostingClassifier
-gbc_clf = GradientBoostingClassifier(n_estimators=5)
-gbc_clf.fit(X_train, y_train)  
-print('Gradient Boosting Results')
-gbc_clf.score(X_test,y_test)
+gbc_sc = []
+for x1,x2,y1,y2 in X_train,X_test,y_train,y_test:
 
-from sklearn.ensemble import AdaBoostClassifier
-gbc_clf = AdaBoostClassifier(n_estimators=5,random_state=48)
-gbc_clf.fit(X_train, y_train)
-print('Ada Boosting Results')
-gbc_clf.score(X_test,y_test)
+    gbc_clf = GradientBoostingClassifier(n_estimators=5)
+    gbc_clf.fit(x1, y1)  
+    gbc_sc.append(gbc_clf.score(x2,y2))
+    
+ada_sc = []
+for x1,x2,y1,y2 in X_train,X_test,y_train,y_test:
 
-# using random forest classifier
-from sklearn.ensemble import RandomForestClassifier
-rfc_clf = RandomForestClassifier(max_depth=1, random_state=48)
-rfc_clf.fit(X_train, y_train)
-print('Random Forest Results')
-rfc_clf.score(X_test, y_test)
+    ada_clf = AdaBoostClassifier(n_estimators=5,random_state=48)
+    ada_clf.fit(x1, y1)
+    ada_sc.append(ada_clf.score(x2,y2))
+    
+rfc_sc = []    
+for x1,x2,y1,y2 in X_train,X_test,y_train,y_test:
 
-# using naive bayes
-from sklearn.naive_bayes import GaussianNB
-NB_clf = GaussianNB()
-NB_clf.fit(X_train, y_train)
-print('GaussianNB Results')
-NB_clf.score(X_test, y_test)
+    # using random forest classifier
+    rfc_clf = RandomForestClassifier(max_depth=1, random_state=48)
+    rfc_clf.fit(x1, y1)
+    rfc_sc.append(rfc_clf.score(x2, y2))
+    
+gnb_sc = []   
+for x1,x2,y1,y2 in X_train,X_test,y_train,y_test:
 
-# using NN Multi Layer Perceptron classifier
-from sklearn.neural_network import MLPClassifier
-NNMLP_clf = MLPClassifier(random_state=48, max_iter=50)
-NNMLP_clf.fit(X_train, y_train)
-print('NNMLP Classifier Results')
-NNMLP_clf.score(X_test, y_test)
+    # using naive bayes
+    NB_clf = GaussianNB()
+    NB_clf.fit(x1, y1)
+    gnb_sc.append(NB_clf.score(x2, y2))
+    
+mlp_sc = []
+for x1,x2,y1,y2 in X_train,X_test,y_train,y_test:
 
-from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
-from sklearn.svm import SVC
-clf = make_pipeline(StandardScaler(), SVC(gamma='auto'))
-xfit = clf.fit(X_train, y_train)
-print('Support Vector Results')
-clf.score(X_test,y_test)
+    # using NN Multi Layer Perceptron classifier
+    NNMLP_clf = MLPClassifier(random_state=48, max_iter=50)
+    NNMLP_clf.fit(x1, y1)
+    mlp_sc.append(NNMLP_clf.score(x2, y2))
+
+svc_sc = []
+for x1,x2,y1,y2 in X_train,X_test,y_train,y_test:
+
+    svc_clf = make_pipeline(StandardScaler(), SVC(gamma='auto'))
+    svc_clf.fit = clf.fit(x1, y1)
+    svc_sc.append(svc_clf.score(x2,y2))
+
+print('Gradient Boosting Results ', np.mean(gbc_sc))
+print('Ada Boosting Results ', np.mean(ada_sc))
+print('Random Forest Results ', np.mean(rfc_sc))
+print('GaussianNB Results ', np.mean(gnb_sc))
+print('NNMLP Classifier Results ', np.mean(mlp_sc))
+print('Support Vector Results ', np.mean(svc_sc))

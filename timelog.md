@@ -50,6 +50,8 @@
 * *2 hours* Segmentation of annotated classes
 * *1 hours* Read research paper
 
+## Week 3
+
 ### 13 Oct 2020
 
 * *1 hour* Extracting heartbeat from data
@@ -76,19 +78,116 @@
 
 * *1 hour* Meeting with supervisor
 
+## Week 4
+
 ### 21 Oct 2020
 
-* *1 hour* Researched on upsampling and downsampling
-* *2 hours* wrote code for upsample and downsample
+* *1 hour* UMAP and PCA analysis
+* *2 hours* TSNE and LOOCV
 
 ### 23 Oct 2020
 
-* *1 hour* Fixed bugs for upsample and downsample code
-* *2 hours* Shuffling beats and reshaping the data matrix
+* *1 hour* GPU problems
+* *2 hours* solving GPU issues
 
 ### 25 Oct 2020
 
- 
+* *1 hour* making yaml and files ready for GPU cluster
+* *2 hours* more GPU issues
 
+## Week 5
+
+### 26 Oct 2020
+
+* *1 hour* PCA with and without TSNE different n components
+* *2 hours* all scores for 75-25, 70-30 from GPU clusters
+
+### 28 Oct 2020
+
+* *1 hour* cluster pending and unscheduled
+* *2 hours* GPU cluster problems
+
+### 1 Nov 2020
+
+* *1 hour* Read the research papers
+* *2 hours* make presentation
+
+### 2 Nov 2020
+
+* *1 hour* Meeting with supervisor
+* *2 hours* Research papers for CNN
+* *1 hours* Confusion matrices and pytorch
+
+## Week 6
+
+### 4 Nov 2020
+
+* *1 hour* Read more papers on CNN
+* *2 hours* Learned about CNN models and architecture
+* *1 hours* CNN imported with keras and tensorflow
+
+### 6 Nov 2020
+
+* *1 hour* Tried colab for LOOCV
+* *2 hours* Bad LOOCV results so ran it on smaller data
+* *1 hours* more LOOCV on colab
+
+### 8 Nov 2020
+
+* *1 hour* Confusion matrices made and compared
+* *2 hours* CNN model research and prepared
+
+
+### 9 Nov 2020
+
+* *1 hour* CNN model ran and prepared scores and confusion matrix
+* *2 hours* tried to visualize CNN
+ 
+## Week 7
+
+### 10 Nov 2020
+
+* *2 hours* Saliency maps research
+* *1 hours* Interpretability research
+
+### 12 Nov 2020
+
+* *1 hour* Tried Keras vis
+* *2 hours* fixing keras vis incompatibility to TF2
+
+### 14 Nov 2020
+
+* *1 hour* Asking Yola for help 
+
+### 16 Nov 2020
+
+* *1 hour* Using Yola's advice and changing library code
+* *2 hours* reshaping data trying to get it to work
+
+## Week 8
+
+### 18 Nov 2020
+
+* *1 hour* Fixing test train split and resampling
+* *2 hours* Performing all classifications again for new method
+
+### 20 Nov 2020
+
+* *1 hour* Read more papers on interpretability
+* *2 hours* Tried more LIME methods
+* *1 hours* Tried Lime for time
+
+### 21 Nov 2020
+
+* *1 hour* Lime for Time worked but I dont understand it
+* *2 hours* Lime for Time very inconsistent for same values
+* *1 hours* More Keras vis and Lime for time
+
+### 23 Nov 2020
+
+* *1 hour* Confusion matrices for new methods both sampled and unsampled
+* *2 hours* Keras vis is impossoble and deprecated cant fix it
+ 
+## Week 9
 
 

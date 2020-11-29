@@ -22,7 +22,7 @@ spec:
       containers:
         # set a name for the container, which will be visible in the
         # CLI/web interface
-      - name: sholoocv-container
+      - name: shoboost-container
         # specify the image this container will be created from.
         # in this example, we'll use the official NVIDIA Tensorflow images
         # from DockerHub (https://hub.docker.com/r/tensorflow/tensorflow)
