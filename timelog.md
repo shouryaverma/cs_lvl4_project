@@ -85,20 +85,31 @@
 * *1 hour* UMAP and PCA analysis
 * *2 hours* TSNE and LOOCV
 
-### 23 Oct 2020
+### 22 Oct 2020
 
 * *1 hour* GPU problems
 * *2 hours* solving GPU issues
 
+### 23 Oct 2020
+
+* *1 hour* Reaserch on Data Visualization
+* *3 hours* Docker and GPU cluster
+
 ### 25 Oct 2020
 
+<<<<<<< HEAD
 * *1 hour* making yaml and files ready for GPU cluster
 * *2 hours* more GPU issues
+=======
+* *2 hour* UMAPS for cluster identification
+* *3 hours* Slides and more visualization 
+>>>>>>> 46f2520b1079d511c6c43f4a5feab5e85f504922
 
 ## Week 5
 
 ### 26 Oct 2020
 
+<<<<<<< HEAD
 * *1 hour* PCA with and without TSNE different n components
 * *2 hours* all scores for 75-25, 70-30 from GPU clusters
 
@@ -160,6 +171,34 @@
 * *1 hour* Asking Yola for help 
 
 ### 16 Nov 2020
+=======
+* *1 hour* Supervisor meeting
+* *2 hours* Patient index for each record
+
+### 27 Oct 2020
+
+* *1 hour* TSNE and UMAP visualization
+* *2 hours* Data dimensionality reduction
+
+### 29 Oct 2020
+
+* *1 hour* Data split into training and testing
+* *3 hours* trained data on different classifiers
+
+### 31 Oct 2020
+
+* *2 hour* More PCA visualization 
+* *3 hours* LOOCV implementation
+
+## Week 6
+
+### 2 Nov 2020
+
+* *1 hour* Supervisor meeting
+* *2 hours* Research on CNN
+
+### 5 Nov 2020
+>>>>>>> 46f2520b1079d511c6c43f4a5feab5e85f504922
 
 * *1 hour* Using Yola's advice and changing library code
 * *2 hours* reshaping data trying to get it to work
