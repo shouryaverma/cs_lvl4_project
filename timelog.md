@@ -186,7 +186,7 @@
 * *2 hour* More PCA visualization 
 * *3 hours* LOOCV implementation
 
-## Week 6
+## Week 8
 
 ### 2 Nov 2020
 
@@ -198,7 +198,7 @@
 * *1 hour* Using Yola's advice and changing library code
 * *2 hours* reshaping data trying to get it to work
 
-## Week 8
+## Week 9
 
 ### 18 Nov 2020
 
@@ -222,7 +222,7 @@
 * *1 hour* Confusion matrices for new methods both sampled and unsampled
 * *2 hours* Keras vis is impossoble and deprecated cant fix it
  
-## Week 9
+## Week 10
 
 ### 25 Nov 2020
 
@@ -234,7 +234,7 @@
 * *1 hour* found partial dependence plots paper
 * *2 hours* implementing partial dependence plot
 
-## Week 10
+## Week 11
 
 ### 2 Dec 2020
 
@@ -246,7 +246,7 @@
 * *1 hour* kernel shap only works with SVM
 * *3 hours* improving kernel shap explanation
 
-## Week 11
+## Week 12
 
 ### 11 Jan 2021
 
@@ -258,7 +258,7 @@
 * *1 hour* kernel shap only works with SVM
 * *2 hours* improving kernel shap explanation
 
-## Week 12
+## Week 13
 
 ### 19 Jan 2021
 
@@ -270,7 +270,7 @@
 * *1 hour* improved TSNE UMAP
 * *3 hours* improved clusters
 
-## Week 12
+## Week 14
 
 ### 25 Jan 2021
 
@@ -282,7 +282,7 @@
 * *1 hour* improved TSNE UMAP
 * *2 hours* improved clusters
 
-## Week 13
+## Week 15
 
 ### 2 Feb 2021
 
@@ -294,7 +294,7 @@
 * *1 hour* found grad-CAM paper
 * *3 hours* implementing grad-CAM on CNN and LSTM
 
-## Week 14
+## Week 16
 
 ### 9 Feb 2021
 
@@ -306,7 +306,7 @@
 * *1 hour* average layer weights for CNN and LSTM
 * *2 hours* plotting layer weights on ECG beats 
 
-## Week 15
+## Week 17
 
 ### 16 Feb 2021
 
@@ -318,7 +318,7 @@
 * *1 hour* misclassified feeature importance 
 * *3 hours* plotting misclassified feature importance
 
-## Week 16
+## Week 18
 
 ### 23 Feb 2021
 
@@ -330,7 +330,7 @@
 * *1 hour* noisy dataset for grad-CAM
 * *2 hours* applying noisy dataset for both CNN and LSTM
 
-## Week 17
+## Week 19
 
 ### 2 Mar 2021
 
@@ -342,7 +342,7 @@
 * *1 hour* misclassified feeature importance 
 * *3 hours* plotting misclassified feature importance
 
-## Week 18
+## Week 20
 
 ### 9 Mar 2021
 
@@ -354,7 +354,7 @@
 * *1 hour* wilcoxon pairwise tests
 * *3 hours* making code dynamic
 
-## Week 19
+## Week 21
 
 ### 17 Mar 2021
 
@@ -366,7 +366,7 @@
 * *1 hour* dissertation
 * *2 hours* dissertation
 
-## Week 19
+## Week 22
 
 ### 23 Mar 2021
 
@@ -377,7 +377,7 @@
 * *4 hours* dissertation
 * *4 hours* dissertation
 
-## Week 20
+## Week 23
 
 ### 30 Mar 2021
 
