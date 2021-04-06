@@ -97,19 +97,15 @@
 
 ### 25 Oct 2020
 
-<<<<<<< HEAD
 * *1 hour* making yaml and files ready for GPU cluster
 * *2 hours* more GPU issues
-=======
 * *2 hour* UMAPS for cluster identification
 * *3 hours* Slides and more visualization 
->>>>>>> 46f2520b1079d511c6c43f4a5feab5e85f504922
 
 ## Week 5
 
 ### 26 Oct 2020
 
-<<<<<<< HEAD
 * *1 hour* PCA with and without TSNE different n components
 * *2 hours* all scores for 75-25, 70-30 from GPU clusters
 
@@ -171,7 +167,7 @@
 * *1 hour* Asking Yola for help 
 
 ### 16 Nov 2020
-=======
+
 * *1 hour* Supervisor meeting
 * *2 hours* Patient index for each record
 
@@ -198,7 +194,6 @@
 * *2 hours* Research on CNN
 
 ### 5 Nov 2020
->>>>>>> 46f2520b1079d511c6c43f4a5feab5e85f504922
 
 * *1 hour* Using Yola's advice and changing library code
 * *2 hours* reshaping data trying to get it to work
@@ -229,4 +224,167 @@
  
 ## Week 9
 
+### 25 Nov 2020
 
+* *1 hour* Read more papers
+* *2 hours* trying to find saliency library
+
+### 27 Nov 2020
+
+* *1 hour* found partial dependence plots paper
+* *2 hours* implementing partial dependence plot
+
+## Week 10
+
+### 2 Dec 2020
+
+* *1 hour* found kernel shap paper
+* *2 hours* implementing kernel shap
+
+### 5 Dec 2020
+
+* *1 hour* kernel shap only works with SVM
+* *3 hours* improving kernel shap explanation
+
+## Week 11
+
+### 11 Jan 2021
+
+* *1 hour* found kernel shap paper
+* *2 hours* implementing kernel shap
+
+### 15 Jan 2021
+
+* *1 hour* kernel shap only works with SVM
+* *2 hours* improving kernel shap explanation
+
+## Week 12
+
+### 19 Jan 2021
+
+* *1 hour* found kernel shap paper
+* *3 hours* implementing kernel shap
+
+### 21 Jan 2021
+
+* *1 hour* improved TSNE UMAP
+* *3 hours* improved clusters
+
+## Week 12
+
+### 25 Jan 2021
+
+* *1 hour* found permutation feature importance paper
+* *3 hours* implementing permutation feature importance
+
+### 27 Jan 2021
+
+* *1 hour* improved TSNE UMAP
+* *2 hours* improved clusters
+
+## Week 13
+
+### 2 Feb 2021
+
+* *1 hour* Kendall Tau correlation of CNN and TSNE
+* *2 hours* more feature importance 
+
+### 4 Feb 2021
+
+* *1 hour* found grad-CAM paper
+* *3 hours* implementing grad-CAM on CNN and LSTM
+
+## Week 14
+
+### 9 Feb 2021
+
+* *1 hour* implementing grad-cam per class
+* *2 hours* trying to see if what i did was right or wrong
+
+### 11 Feb 2021
+
+* *1 hour* average layer weights for CNN and LSTM
+* *2 hours* plotting layer weights on ECG beats 
+
+## Week 15
+
+### 16 Feb 2021
+
+* *1 hour* grad-CAM on misclassified beats 
+* *3 hours* more misclassified grad-cam
+
+### 20 Feb 2021
+
+* *1 hour* misclassified feeature importance 
+* *3 hours* plotting misclassified feature importance
+
+## Week 16
+
+### 23 Feb 2021
+
+* *1 hour* reading about statistical test
+* *3 hours* implementing statistical tests
+
+### 26 Feb 2021
+
+* *1 hour* noisy dataset for grad-CAM
+* *2 hours* applying noisy dataset for both CNN and LSTM
+
+## Week 17
+
+### 2 Mar 2021
+
+* *1 hour* grad-CAM on misclassified beats 
+* *2 hours* more misclassified grad-cam
+
+### 4 Mar 2021
+
+* *1 hour* misclassified feeature importance 
+* *3 hours* plotting misclassified feature importance
+
+## Week 18
+
+### 9 Mar 2021
+
+* *1 hour* Kendall tau on segments 
+* *3 hours* more stats tests
+
+### 13 Mar 2021
+
+* *1 hour* wilcoxon pairwise tests
+* *3 hours* making code dynamic
+
+## Week 19
+
+### 17 Mar 2021
+
+* *1 hour* finishing dynamic code
+* *2 hours* finishing evalaution
+
+### 20 Mar 2021
+
+* *1 hour* dissertation
+* *2 hours* dissertation
+
+## Week 19
+
+### 23 Mar 2021
+
+* *4 hours* dissertation
+* *4 hours* dissertation
+### 26 Mar 2021
+
+* *4 hours* dissertation
+* *4 hours* dissertation
+
+## Week 20
+
+### 30 Mar 2021
+
+* *4 hours* dissertation
+* *4 hours* dissertation
+
+### 2 April 2021
+
+* *4 hours* dissertation
+* *4 hours* dissertation
