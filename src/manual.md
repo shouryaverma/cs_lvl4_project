@@ -12,4 +12,5 @@ These files should be ran in the following order:
   - pdp_shap: Implements PDP and SHAP on NNMLP and SVC model.
   - feature_imp_plots: Creates plots for feature importance of all models.
   - cross_val: Performs K-Fold cross validation on all models, stores results.
+  - correlation: Kendall Tau correlation for CNN and LSTM segments, and feature importanc results per model.
   - results_and_statstests: Creates plots for all results data and implements statistical tests.
