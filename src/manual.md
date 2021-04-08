@@ -1,6 +1,6 @@
 # User manual 
 
-The code is available in both .ipynb notebook and .py code formats. 
+The code is available in both .ipynb notebook and .py code formats. The code should ideally be ran on Google Colaboratory GPU hardware accelerator using the .ipynb notebooks.
 
 These files should be ran in the following order:
 
