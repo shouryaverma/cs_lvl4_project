@@ -213,27 +213,40 @@ y_test1=to_categorical(y_test)
 import tensorflow as tf
 tf.compat.v1.disable_eager_execution()
 
-verbose, epoch, batch_size = 1, 5, 256
-activationFunction='relu'
+# verbose, epoch, batch_size = 1, 5, 256
+# activationFunction='relu'
 
-def getlstmModel():
+# def getlstmModel():
     
-    lstmmodel = Sequential()
-    lstmmodel.add(LSTM(128, return_sequences=True, input_shape=(X_train1.shape[1],1)))
-    lstmmodel.add(LSTM(9, return_sequences=True))
-    lstmmodel.add(MaxPooling1D(pool_size=2))
-    lstmmodel.add(Flatten())
-    lstmmodel.add(Dense(512, activation=tf.nn.relu))    
-    lstmmodel.add(Dense(128, activation=tf.nn.relu))    
-    lstmmodel.add(Dense(32, activation=tf.nn.relu))
-    lstmmodel.add(Dense(9, activation='softmax'))
-    lstmmodel.compile(optimizer='adam', loss='categorical_crossentropy',metrics=['accuracy'])
-    lstmmodel.summary()
-    return lstmmodel
+#     lstmmodel = Sequential()
+#     lstmmodel.add(LSTM(128, return_sequences=True, input_shape=(X_train1.shape[1],1)))
+#     lstmmodel.add(LSTM(9, return_sequences=True))
+#     lstmmodel.add(MaxPooling1D(pool_size=2))
+#     lstmmodel.add(Flatten())
+#     lstmmodel.add(Dense(512, activation=tf.nn.relu))    
+#     lstmmodel.add(Dense(128, activation=tf.nn.relu))    
+#     lstmmodel.add(Dense(32, activation=tf.nn.relu))
+#     lstmmodel.add(Dense(9, activation='softmax'))
+#     lstmmodel.compile(optimizer='adam', loss='categorical_crossentropy',metrics=['accuracy'])
+#     lstmmodel.summary()
+#     return lstmmodel
 
-lstmmodel = getlstmModel()
+# lstmmodel = getlstmModel()
 
-lstmmodelhistory= lstmmodel.fit(X_train1[:,:,:,0], y_train1, epochs=epoch, verbose=verbose, validation_split=0.2, batch_size = batch_size)
+# lstmmodelhistory= lstmmodel.fit(X_train1[:,:,:,0], y_train1, epochs=epoch, verbose=verbose, validation_split=0.2, batch_size = batch_size)
+
+from keras.models import model_from_json
+#loading the model and running it on datasets
+from keras.models import load_model
+
+lstmmodel = load_model('/content/drive/MyDrive/compsci/modelsresult/lstmmodel.h5')
+lstmmodel.summary()
+# lstm_json = open('/content/drive/MyDrive/compsci/modelsresult/lstmmodel_weights.json', 'r')
+# loaded_lstmmodel_json = lstm_json.read()
+# lstm_json.close()
+# loaded_lstm_model = model_from_json(loaded_lstmmodel_json)
+# # load weights into new model
+# loaded_lstm_model.load_weights("/content/drive/MyDrive/compsci/modelsresult/lstmmodel_weights.h5")
 
 get_last_conv1 = keras.backend.function([lstmmodel.layers[0].input, keras.backend.learning_phase()], [lstmmodel.layers[1].output])
 last_conv1_lstm = get_last_conv1([X_test1[:,:,:,0]])[0]
@@ -266,32 +279,41 @@ for i in new_last_lstm:
 final_last_lstm = np.array(final_last_lstm)
 print(final_last_lstm.shape)
 
-import tensorflow as tf
-tf.compat.v1.disable_eager_execution()
+# import tensorflow as tf
+# tf.compat.v1.disable_eager_execution()
 
-verbose, epoch, batch_size = 1, 5, 64
-activationFunction='relu'
+# verbose, epoch, batch_size = 1, 5, 64
+# activationFunction='relu'
 
-def getModel():
+# def getModel():
     
-    cnnmodel = Sequential()
-    cnnmodel.add(Conv1D(filters=128, kernel_size=16,padding='same', activation='relu',input_shape=(X_train1.shape[1],1)))
-    cnnmodel.add(BatchNormalization())
-    cnnmodel.add(Conv1D(filters=32, kernel_size=16,padding='same', activation='relu'))
-    cnnmodel.add(BatchNormalization())
-    cnnmodel.add(Conv1D(filters=9, kernel_size=16,padding='same', activation='relu'))
-    cnnmodel.add(MaxPooling1D(pool_size=2,padding='same'))
-    cnnmodel.add(Flatten())
-    cnnmodel.add(Dense(512, activation='relu'))
-    cnnmodel.add(Dense(128, activation='relu'))
-    cnnmodel.add(Dense(32, activation='relu'))
-    cnnmodel.add(Dense(9, activation='softmax'))
-    cnnmodel.compile(optimizer='adam', loss='categorical_crossentropy',metrics=['accuracy'])
-    cnnmodel.summary()
-    return cnnmodel
+#     cnnmodel = Sequential()
+#     cnnmodel.add(Conv1D(filters=128, kernel_size=16,padding='same', activation='relu',input_shape=(X_train1.shape[1],1)))
+#     cnnmodel.add(BatchNormalization())
+#     cnnmodel.add(Conv1D(filters=32, kernel_size=16,padding='same', activation='relu'))
+#     cnnmodel.add(BatchNormalization())
+#     cnnmodel.add(Conv1D(filters=9, kernel_size=16,padding='same', activation='relu'))
+#     cnnmodel.add(MaxPooling1D(pool_size=2,padding='same'))
+#     cnnmodel.add(Flatten())
+#     cnnmodel.add(Dense(512, activation='relu'))
+#     cnnmodel.add(Dense(128, activation='relu'))
+#     cnnmodel.add(Dense(32, activation='relu'))
+#     cnnmodel.add(Dense(9, activation='softmax'))
+#     cnnmodel.compile(optimizer='adam', loss='categorical_crossentropy',metrics=['accuracy'])
+#     cnnmodel.summary()
+#     return cnnmodel
 
-cnnmodel = getModel()
-modelhistory= cnnmodel.fit(X_train1[:,:,:,0], y_train1, epochs=epoch, verbose=verbose, validation_split=0.2, batch_size = batch_size)
+# cnnmodel = getModel()
+# modelhistory= cnnmodel.fit(X_train1[:,:,:,0], y_train1, epochs=epoch, verbose=verbose, validation_split=0.2, batch_size = batch_size)
+
+cnnmodel = load_model('/content/drive/MyDrive/compsci/modelsresult/cnnmodel.h5')
+cnnmodel.summary()
+# cnn_json = open('/content/drive/MyDrive/compsci/modelsresult/cnnmodel_weights.json', 'r')
+# loaded_cnnmodel_json = cnn_json.read()
+# cnn_json.close()
+# loaded_cnn_model = model_from_json(loaded_cnnmodel_json)
+# # load weights into new model
+# loaded_cnn_model.load_weights("/content/drive/MyDrive/compsci/modelsresult/cnnmodel_weights.h5")
 
 get_last_conv1 = keras.backend.function([cnnmodel.layers[0].input, keras.backend.learning_phase()], [cnnmodel.layers[4].output])
 last_conv1_cnn = get_last_conv1([X_test1[:,:,:,0]])[0]

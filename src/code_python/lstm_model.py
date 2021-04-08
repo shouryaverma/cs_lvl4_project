@@ -320,15 +320,15 @@ plt.title('Misclass and Correct Avg Weight of all beats, LSTM model')
 plt.legend()
 plt.show()
 
-# # saving the model
+# saving the model
 
-# model_json = lstmmodel.to_json()
-# with open("NEWlstmmodel_testunsam.json", "w") as json_file:
-#     json_file.write(model_json)
-# # serialize weights to HDF5
-# lstmmodel.save_weights("NEWlstmmodel_testunsam_weights.h5")
-# lstmmodel.save("NEWlstmmodel_testunsam.h5")
-# print("Saved model to disk")
+model_json = lstmmodel.to_json()
+with open("lstmmodel_weights.json", "w") as json_file:
+    json_file.write(model_json)
+# serialize weights to HDF5
+lstmmodel.save_weights("lstmmodel_weights.h5")
+lstmmodel.save("lstmmodel.h5")
+print("Saved model to disk")
 
 #done on GRAD-CAM
 
@@ -405,3 +405,4 @@ plt.show()
 LSTM_results = pd.DataFrame(data=lstm_results,index=('Model','Accuracy','Precision','Recall','F1score','CM'))
 print(LSTM_results)
 LSTM_results.to_csv('lstm_results.csv', encoding='utf-8', index=False)
+

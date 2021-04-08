@@ -334,15 +334,15 @@ plt.title('Misclass and Correct Avg Weight of all beats, CNN model')
 plt.legend()
 plt.show()
 
-# # saving the model
+# saving the model
 
-# model_json = cnnmodel.to_json()
-# with open("NEWcnnmodel_testunsam.json", "w") as json_file:
-#     json_file.write(model_json)
-# # serialize weights to HDF5
-# cnnmodel.save_weights("NEWcnnmodel_testunsam_weights.h5")
-# cnnmodel.save("NEWcnnmodel_testunsam.h5")
-# print("Saved model to disk")
+model_json = cnnmodel.to_json()
+with open("cnnmodel_weights.json", "w") as json_file:
+    json_file.write(model_json)
+# serialize weights to HDF5
+cnnmodel.save_weights("cnnmodel_weights.h5")
+cnnmodel.save("cnnmodel.h5")
+print("Saved model to disk")
 
 #done on GRAD-CAM
 
@@ -423,3 +423,4 @@ plt.show()
 CNN_results = pd.DataFrame(data=cnn_results,index=('Model','Accuracy','Precision','Recall','F1score','CM'))
 print(CNN_results)
 CNN_results.to_csv('cnn_results.csv', encoding='utf-8', index=False)
+
