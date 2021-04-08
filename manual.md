@@ -1,8 +1,8 @@
-# cs_lvl4_project
-## Machine Learning Models to Detect Arrhythmia based on ECG Data - Interpretability
+# User manual 
 
+The code is available in both .ipynb notebook and .py code formats. 
 
-## The src folder contains project code both in .ipynb notebook and .py format. The code files have the following description:
+These files should be ran in the following order:
 
   - data_preprocessing: Reads raw MIT-BIH data, prepares test and train datasets for both beats holdout and patient holdout method.
   - pca_tsne_umap: Creates clusters on the test and train data.
@@ -13,11 +13,3 @@
   - feature_imp_plots: Creates plots for feature importance of all models.
   - cross_val: Performs K-Fold cross validation on all models, stores results.
   - results_and_statstests: Creates plots for all results data and implements statistical tests.
-
-## Requirements
-
-* Python 3.6–3.8
-* Windows 7 or later (64-bit) 
-* Tested on Google Colaboratory GPU
-* Jupyter Notebook
-* MIT-BIH Arrhythmia Dataset https://www.physionet.org/content/mitdb/1.0.0/

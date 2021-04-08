@@ -5,7 +5,7 @@
 ## The src folder contains project code both in .ipynb notebook and .py format. The code files have the following description:
 
   - data_preprocessing: Reads raw MIT-BIH data, prepares test and train datasets for both beats holdout and patient holdout method.
-  - pca_tsne_umap: Creates clusters on the test and train data.
+  - pca_tsne_umap: Creates pca, tsne, umap clusters on the test and train data.
   - sklearn_models: Trains and tests the sklearn models, stores results and feature importance.
   - cnn_model: Trains and tests the CNN model, stores results, grad-CAM and feature importance.
   - lstm_model: Trains and tests the LSTM model, stores results, grad-CAM and feature importance.
@@ -21,3 +21,4 @@
 * Tested on Google Colaboratory GPU
 * Jupyter Notebook
 * MIT-BIH Arrhythmia Dataset https://www.physionet.org/content/mitdb/1.0.0/
+* Packages from requirements.txt

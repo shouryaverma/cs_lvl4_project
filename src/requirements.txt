@@ -1,0 +1,23 @@
+# Requirements
+
+## PIP Install Packages
+
+!pip install numpy
+!pip install pandas
+!pip install glob
+!pip install matplotlib
+!pip install scipy
+!pip install seaborn
+!pip install wfdb
+!pip install pylab
+!pip install umap
+!pip install keras
+!pip install tensorflow
+!pip install scikit-learn
+!pip install shap
+!pip install alibi
+!pip install eli5
+!pip install researchpy
+!pip install scikit-posthocs
+
+
